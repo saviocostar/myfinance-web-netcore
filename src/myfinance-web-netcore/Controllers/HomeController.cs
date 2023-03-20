@@ -13,7 +13,7 @@ public class HomeController : Controller
         _logger = logger;
     }
 
-    [HttpGet]
+    [HttpPost]
     public IActionResult Cadastro(HomeModel model)
     {
         var teste = model.Nome;

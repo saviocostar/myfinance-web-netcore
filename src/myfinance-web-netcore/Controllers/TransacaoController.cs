@@ -10,11 +10,11 @@ using myfinance_web_netcore.Models;
 namespace myfinance_web_netcore.Controllers
 {
     [Route("[controller]")]
-    public class PlanoContaController : Controller
+    public class TransacaoController : Controller
     {
         private readonly ILogger<PlanoContaController> _logger;
 
-        public PlanoContaController(ILogger<PlanoContaController> logger)
+        public TransacaoController(ILogger<PlanoContaController> logger)
         {
             _logger = logger;
         }
@@ -36,7 +36,7 @@ namespace myfinance_web_netcore.Controllers
 
         [HttpPost]
         [Route("Cadastro")]
-        public IActionResult Cadastro(PlanoContaModel model)
+        public IActionResult Cadastro(TransacaoModel model)
         {
             return RedirectToAction("Index");
         }
