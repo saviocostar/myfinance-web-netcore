@@ -7,6 +7,6 @@ namespace myfinance_web_netcore.Models
 {
     public class HomeModel
     {
-        public String Nome { get; set; }
+        public String? Nome { get; set; }
     }
 }
