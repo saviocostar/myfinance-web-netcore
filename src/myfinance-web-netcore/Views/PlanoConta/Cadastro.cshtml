@@ -1,7 +1,7 @@
 @model PlanoContaModel
 
 @{
-    ViewData["Title"] = "Cadastro de Plano de Contas";
+ViewData["Title"] = "Cadastro de Plano de Contas";
 }
 
 <h1>@ViewData["Title"]</h1>
@@ -9,19 +9,22 @@
 <form asp-controller="PlanoConta" asp-action="Cadastro" method="post">
     <div class="container">
         <div class="mb-3">
-            <label class="form-label">Descrição</label>
             <input type="hidden" id="txtId" class="form-control" asp-for="Id" />
-            <input type="text" id="txtNome" class="form-control" asp-for="Descricao" />
-        </div>
+            <label class="form-label">Descrição</label>
+            <input type="text" id="txtDescricao" class="form-control" asp-for="Descricao" />
 
-        <div class="mb-3">
-            <label>@Html.RadioButtonFor(m => m.Tipo, "D") Despesa</label>
-            <label>@Html.RadioButtonFor(m => m.Tipo, "D") Receita</label>
-        </div>
+            <div class="mb-3">
+                <label class="form-label mt-3 mb-0">Tipo</label>
+                <div class="form-check">
+                    <label>@Html.RadioButtonFor(m => m.Tipo, "D") Despesa</label>
+                    <label>@Html.RadioButtonFor(m => m.Tipo, "R") Receita</label>
+                </div>
+            </div>
 
-        <div class="mb-3">
-            <button type="submit" class="btn btn-primary btn-lg">Salvar</button>
-            <button type="button" class="btn btn-secondary btn-lg" onclick="Voltar()">Cancelar</button>
+            <div class="mb-3">
+                <button type="submit" class="btn btn-primary btn-lg">Salvar</button>
+                <button type="button" class="btn btn-secondary btn-lg" onclick="Voltar()">Cancelar</button>
+            </div>
         </div>
     </div>
 </form>

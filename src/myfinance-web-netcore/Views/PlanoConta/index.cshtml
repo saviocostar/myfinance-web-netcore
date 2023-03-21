@@ -1,10 +1,10 @@
 @{
-    ViewData["Title"] = "Plano de Contas";
+ViewData["Title"] = "Plano de Contas";
 }
 
 <h1>@ViewData["Title"]</h1>
 
-<button type="button" class="btn btn-primary btn-lg" onclick="Novo()">Criar item de Plano de Contas</button>
+<button type="button" class="btn btn-primary btn-lg" onclick="createPlanoConta()">Criar item de Plano de Contas</button>
 <hr>
 
 <table class="table table-dark table-striped">
@@ -18,18 +18,33 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td>1</td>
-            <td>Teste</td>
-            <td>D</td>
-            <td><button type="button" class="btn btn-outline-warning">Editar</button></td>
-            <td><button type="button" class="btn btn-outline-danger">Excluir</button></td>
-        </tr>
+        @{
+        foreach(var item in (List<PlanoContaModel>)ViewBag.ListaPlanoConta) {
+            <tr>
+                <th scope="row">@item.Id</th>
+                <td>@item.Descricao</td>
+                <td>@item.Tipo</td>
+                <td><button type="button" class="btn btn-outline-warning"
+                        onclick="updatePlanoConta(@item.Id.ToString())">Editar</button></td>
+                <td><button type="button" class="btn btn-outline-danger"
+                        onclick="deletePlanoConta(@item.Id.ToString())">Excluir</button></td>
+            </tr>
+            }
+            }
     </tbody>
 </table>
 
 <script>
-    function Novo() {
-        window.location.href = "../PlanoConta/Cadastro"
+    function createPlanoConta() {
+        window.location.href = "../PlanoConta/Cadastro";
     }
+
+    function updatePlanoConta(id) {
+        window.location.href = "../PlanoConta/Cadastro/" + id;
+    }
+
+    function deletePlanoConta(id) {
+        window.location.href = "../PlanoConta/Excluir/" + id;;
+    }
+
 </script>
